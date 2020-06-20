@@ -19,8 +19,10 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.techasylum.my_architecture_mvvm.adapter.NoteAdapter;
+import com.techasylum.my_architecture_mvvm.room.Note;
+import com.techasylum.my_architecture_mvvm.view_model.NoteViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -74,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent=new Intent(MainActivity.this,AddNoteActivity.class);
+                Intent intent=new Intent(MainActivity.this, Add_Edit_NoteActivity.class);
                 startActivityForResult(intent,ADD_NOTE_REQUEST);
             }
         });
@@ -87,11 +89,11 @@ public class MainActivity extends AppCompatActivity {
 
               Note note=adapter.getNoteAt(position);
 
-              Intent intent = new Intent(MainActivity.this, AddNoteActivity.class);
-              intent.putExtra(AddNoteActivity.EXTRA_ID, note.getId());
-              intent.putExtra(AddNoteActivity.EXTRA_TITLE, note.getTitle());
-              intent.putExtra(AddNoteActivity.EXTRA_DESCRIPTION, note.getDescription());
-              intent.putExtra(AddNoteActivity.EXTRA_PRIORITY, note.getDate());
+              Intent intent = new Intent(MainActivity.this, Add_Edit_NoteActivity.class);
+              intent.putExtra(Add_Edit_NoteActivity.EXTRA_ID, note.getId());
+              intent.putExtra(Add_Edit_NoteActivity.EXTRA_TITLE, note.getTitle());
+              intent.putExtra(Add_Edit_NoteActivity.EXTRA_DESCRIPTION, note.getDescription());
+              intent.putExtra(Add_Edit_NoteActivity.EXTRA_PRIORITY, note.getDate());
               startActivityForResult(intent, ED_NOTE_REQUEST);
 
 
@@ -130,9 +132,9 @@ public class MainActivity extends AppCompatActivity {
 
         if(requestCode==ADD_NOTE_REQUEST&& resultCode==RESULT_OK){
 
-            String title=data.getStringExtra(AddNoteActivity.EXTRA_TITLE);
-            String desc=data.getStringExtra(AddNoteActivity.EXTRA_DESCRIPTION);
-            String priority=data.getStringExtra(AddNoteActivity.EXTRA_PRIORITY);
+            String title=data.getStringExtra(Add_Edit_NoteActivity.EXTRA_TITLE);
+            String desc=data.getStringExtra(Add_Edit_NoteActivity.EXTRA_DESCRIPTION);
+            String priority=data.getStringExtra(Add_Edit_NoteActivity.EXTRA_PRIORITY);
 
 
             Note note=new Note(title,desc,priority);
@@ -143,14 +145,14 @@ public class MainActivity extends AppCompatActivity {
 
         }
         else if (requestCode == ED_NOTE_REQUEST && resultCode == RESULT_OK) {
-            int id = data.getIntExtra(AddNoteActivity.EXTRA_ID, -1);
+            int id = data.getIntExtra(Add_Edit_NoteActivity.EXTRA_ID, -1);
             if (id == -1) {
                 Toast.makeText(this, "Note can't be updated", Toast.LENGTH_SHORT).show();
                 return;
             }
-            String title = data.getStringExtra(AddNoteActivity.EXTRA_TITLE);
-            String description = data.getStringExtra(AddNoteActivity.EXTRA_DESCRIPTION);
-            String priority = data.getStringExtra(AddNoteActivity.EXTRA_PRIORITY);
+            String title = data.getStringExtra(Add_Edit_NoteActivity.EXTRA_TITLE);
+            String description = data.getStringExtra(Add_Edit_NoteActivity.EXTRA_DESCRIPTION);
+            String priority = data.getStringExtra(Add_Edit_NoteActivity.EXTRA_PRIORITY);
             Note note = new Note(title, description, priority);
             note.setId(id);
             noteViewModel.update(note);

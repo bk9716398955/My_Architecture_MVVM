@@ -1,25 +1,20 @@
-package com.techasylum.my_architecture_mvvm;
+package com.techasylum.my_architecture_mvvm.adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.AsyncListDiffer;
 import androidx.recyclerview.widget.DiffUtil;
-import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.techasylum.my_architecture_mvvm.R;
+import com.techasylum.my_architecture_mvvm.room.Note;
 
-import static com.techasylum.my_architecture_mvvm.MainActivity.ADD_NOTE_REQUEST;
-import static com.techasylum.my_architecture_mvvm.MainActivity.ED_NOTE_REQUEST;
+import java.util.List;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
 

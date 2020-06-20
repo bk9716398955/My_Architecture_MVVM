@@ -1,10 +1,13 @@
-package com.techasylum.my_architecture_mvvm;
+package com.techasylum.my_architecture_mvvm.view_model;
 
 import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+
+import com.techasylum.my_architecture_mvvm.repositry_conn.NoteRepository;
+import com.techasylum.my_architecture_mvvm.room.Note;
 
 import java.util.List;
 

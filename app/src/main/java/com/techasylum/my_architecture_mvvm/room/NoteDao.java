@@ -1,4 +1,4 @@
-package com.techasylum.my_architecture_mvvm;
+package com.techasylum.my_architecture_mvvm.room;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -6,6 +6,8 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
+
+import com.techasylum.my_architecture_mvvm.room.Note;
 
 import java.util.List;
 

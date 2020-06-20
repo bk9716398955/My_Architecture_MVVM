@@ -1,9 +1,13 @@
-package com.techasylum.my_architecture_mvvm;
+package com.techasylum.my_architecture_mvvm.repositry_conn;
 
 import android.app.Application;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
+
+import com.techasylum.my_architecture_mvvm.room.Note;
+import com.techasylum.my_architecture_mvvm.room.NoteDao;
+import com.techasylum.my_architecture_mvvm.room.NoteDatabase;
 
 import java.util.List;
 

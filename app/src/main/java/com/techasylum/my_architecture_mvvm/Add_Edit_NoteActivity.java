@@ -14,11 +14,7 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Date;
-
-import static com.techasylum.my_architecture_mvvm.MainActivity.ED_NOTE_REQUEST;
-
-public class AddNoteActivity extends AppCompatActivity {
+public class Add_Edit_NoteActivity extends AppCompatActivity {
     public static final String EXTRA_ID =
             "com.codinginflow.architectureexample.EXTRA_ID";
     public static final String EXTRA_TITLE =
@@ -57,9 +53,9 @@ public class AddNoteActivity extends AppCompatActivity {
         if (intent.hasExtra(EXTRA_ID)) {
             setTitle("Edit Note");
 
-            String title = intent.getStringExtra(AddNoteActivity.EXTRA_TITLE);
-            String desc = intent.getStringExtra(AddNoteActivity.EXTRA_DESCRIPTION);
-            String priority = intent.getStringExtra(AddNoteActivity.EXTRA_PRIORITY);
+            String title = intent.getStringExtra(Add_Edit_NoteActivity.EXTRA_TITLE);
+            String desc = intent.getStringExtra(Add_Edit_NoteActivity.EXTRA_DESCRIPTION);
+            String priority = intent.getStringExtra(Add_Edit_NoteActivity.EXTRA_PRIORITY);
             editTextTitle.setText(title);
             editTextDescription.setText(desc);
             dateViewTxt.setText(priority);
@@ -114,7 +110,7 @@ public class AddNoteActivity extends AppCompatActivity {
 
             data.putExtra(EXTRA_ID, id);
 
-            Toast.makeText(AddNoteActivity.this, "idd"+id, Toast.LENGTH_SHORT).show();
+            Toast.makeText(Add_Edit_NoteActivity.this, "idd"+id, Toast.LENGTH_SHORT).show();
         }
         data.putExtra(EXTRA_TITLE, title);
         data.putExtra(EXTRA_DESCRIPTION, description);

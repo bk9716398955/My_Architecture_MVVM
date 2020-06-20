@@ -1,4 +1,4 @@
-package com.techasylum.my_architecture_mvvm;
+package com.techasylum.my_architecture_mvvm.room;
 
 
 import androidx.room.ColumnInfo;
